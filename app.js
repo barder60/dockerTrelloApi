@@ -14,7 +14,7 @@ const bodyParser = require('body-parser')
 
 
 var app = express();
-mongoose.connect('mongodb://127.0.0.1:27017/trello',
+mongoose.connect('mongodb://api_mongodb_1:27017/trello',
 { useNewUrlParser: true },
 ()=>{
   console.log('Connected to DB !')
