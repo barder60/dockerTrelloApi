@@ -22,3 +22,6 @@ chrome-user-data
 .vscode
 *.swp
 *.swo
+npm-debug.log
+mongo
+mongo-volume/
