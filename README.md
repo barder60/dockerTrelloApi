@@ -57,7 +57,9 @@ Copier coller l'id du container de mongo :
 puis écrire :
 ```docker exec -ti <id du container> bash ```
 Ensuite préparer la BDD:
-``` mongo
+``` 
+mongo
 use trello 
 exit 
-exit ```
+exit 
+```
