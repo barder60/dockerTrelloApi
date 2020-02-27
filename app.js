@@ -11,14 +11,11 @@ var removeTask = require('./routes/removeTask');
 var showAllTasks = require('./routes/showAllTasks');
 var mongoose = require('mongoose')
 const bodyParser = require('body-parser')
-
+// const PORT = process.env.PORT || 9000
 
 var app = express();
-mongoose.connect('mongodb://api_mongodb_1:27017/trello',
-{ useNewUrlParser: true },
-()=>{
-  console.log('Connected to DB !')
-})
+
+
 
 
 
@@ -40,6 +37,11 @@ app.use('/removeTask', removeTask);
 app.use('/showAllTasks', showAllTasks);
 
 
+const DbUri = "mongodb://mongo:27017/trello"
+mongoose.connect(DbUri,
+{ useNewUrlParser: true },
+).then(console.log('connecté'))
+ .catch(err => console.log(err))
 
 
 

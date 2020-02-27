@@ -1,16 +1,6 @@
 version: '3.7'
 
-services:
-  mongodb:
-    restart: always
-    image: mongo:4.0.4
-    environment:
-        - MONGO_INIT_DATABASE=trello
-    volumes:
-        - ./init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
-        - ./mongo-volume:/data/db
-    ports:
-       - "27017-27019:27017-27019"
+services:  
   api:
     restart: always
     container_name: api
@@ -21,7 +11,16 @@ services:
       - '.:/app'
       - '/app/node_modules'
     ports:
-      - 9000:9000
+      - "9000:9000"
     environment:
       - NODE_ENV=development
-    command: npm start
+    links: 
+      - mongo
+    depends_on: 
+      - "mongo"
+  mongo:
+    image: mongo
+    volumes:
+      - ./mongo-volume:/data/db
+    ports:
+      - "27017:27017"

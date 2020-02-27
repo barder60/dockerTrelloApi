@@ -6,13 +6,9 @@ const Task = require('../models/Task')
  */
 router.get('/', async (req, res, next) => {
     try{
-        //const tasks = await Task.find();
-        res.send([{
-            name:"toto",
-            isFinish: true
-        }])
+        Task.find().then((toDos) => res.status(200).send(toDos))
       } catch(error){
-        res.status(500).send(error)
+        res.send(error)
       }
 })
 

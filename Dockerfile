@@ -12,5 +12,7 @@ COPY package.json /app/package.json
 
 RUN npm install --silent
 
+EXPOSE 9000
+
 # start app
 CMD ["npm", "start"]
