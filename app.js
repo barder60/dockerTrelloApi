@@ -9,6 +9,7 @@ var usersRouter = require('./routes/users');
 var testAPIRouter = require("./routes/testAPI");
 var removeTask = require('./routes/removeTask');
 var showAllTasks = require('./routes/showAllTasks');
+var addTasks = require('./routes/addTasks')
 var mongoose = require('mongoose')
 const bodyParser = require('body-parser')
 // const PORT = process.env.PORT || 9000
@@ -35,6 +36,7 @@ app.use('/users', usersRouter);
 app.use('/testAPI', testAPIRouter);
 app.use('/removeTask', removeTask);
 app.use('/showAllTasks', showAllTasks);
+app.use('/addTasks', addTasks);
 
 
 const DbUri = "mongodb://mongo:27017/trello"
