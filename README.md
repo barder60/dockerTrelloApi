@@ -3,10 +3,11 @@ Nous avons choisie de travailler avec une apiRest nodejs pour raison de simplici
 Nous avons également choisie mongoose qui est basé sur mongodb qui est un SGBD NoSQL, nous l'avons choisie pour des raison d'apprentissage et de facilité de conpatibilité avec nodeJs.
 
 ## Installation
-``` # git clone this repository
+### recupérer le repertoire api
+```
 git clone https://github.com/barder60/dockerTrelloApi.git
 cd api ````
-
+## Contribuer
 ## Déploiement
 Puis via docker :
 ``` docker-compose up --build ```
