@@ -7,6 +7,7 @@ Nous avons également choisie mongoose qui est basé sur mongodb qui est un SGBD
 git clone https://github.com/barder60/dockerTrelloApi.git
 cd api ````
 
+## Déploiement
 Puis via docker :
 ``` docker-compose up --build ```
 
