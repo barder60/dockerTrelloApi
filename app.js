@@ -38,12 +38,24 @@ app.use('/removeTask', removeTask);
 app.use('/showAllTasks', showAllTasks);
 app.use('/addTasks', addTasks);
 
+const createApp = async (mongoUri) => {
+  await mongoose.connect(mongoUri, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+  })
+  mongoose.connection.on('connected', () => log('Connected to MongoDB'))
+  mongoose.connection.on('error', (err) => log('MongoDB error', err))
+  mongoose.connection.on('disconnected', () => log('MongoDB disconnected'))
 
-const DbUri = "mongodb://mongo:27017/trello"
-mongoose.connect(DbUri,
-{ useNewUrlParser: true },
-).then(console.log('connecté'))
- .catch(err => console.log(err))
+  return mongoose.connection
+}
+
+const start = async () => {
+  // Dans l'idée on devrait utilisé les variable venant du docker-compose
+  await createApp("mongodb://mongo:27017/trello")
+}
+
+start()
 
 
 

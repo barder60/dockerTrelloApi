@@ -6,18 +6,18 @@ services:
     container_name: api
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: Api.Dockerfile
     volumes:
       - '.:/app'
       - '/app/node_modules'
     ports:
       - "9000:9000"
     environment:
+      - WAIT_HOSTS=mongo:27017
+      - MONGODB_ADDON_URI=mongodb://mongo:27017/trello
       - NODE_ENV=development
-    links: 
-      - mongo
     depends_on: 
-      - "mongo"
+      - mongo
   mongo:
     image: mongo
     volumes:
